@@ -4,8 +4,8 @@ setlocal
 :first
 
 echo "assimpを取得中…"
-curl -L -o "%~dp0assimp-bins-windows-latest-cl.zip" https://github.com/NeosSharedProject/assimp/suites/9752106754/artifacts/468245605
-powershell -command `Expand-Archive -Force -Path %~dp0assimp-bins-windows-latest-cl.zip -DestinationPath %~dp0assimp
+curl -L -o "%~dp0assimp.exe" https://github.com/NeosSharedProject/assimp/releases/download/master/assimp.exe
+
 :cycle
 
 set SOURCE=%1
@@ -16,7 +16,7 @@ echo OUTPUT = %OUTPUT%
 
 IF NOT DEFINED SOURCE goto error-drop
 
-"%~dp0assimp\assimp.exe" %SOURCE% %OUTPUT% -ffbx
+"%~dp0assimp.exe" export %SOURCE% %OUTPUT% -ffbx
 goto end
 
 :error-drop
