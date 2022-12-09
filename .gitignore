@@ -1,2 +1,6 @@
-VRM_Addon_for_Blender-release.zip
+*.zip
+FbxFormatConverter.exe
 VRMConvert/
+modelconv/
+assimp/
+*.code-workspace

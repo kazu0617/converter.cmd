@@ -118,14 +118,19 @@ if '__main__' == __name__:
     parser.add_argument('--input', required=True)
     parser.add_argument('--output', required=True)
     parser.add_argument('--fbx', required=False)
+    parser.add_argument('--maya', required=False)
     
     args = parser.parse_args(sys.argv[sys.argv.index('--') + 1:])
     
     input = args.input
     output = args.output
     fbx = args.fbx
+    maya = args.maya
 
-    bpy.ops.import_scene.fbx(filepath=input, use_anim=False)
+    if(maya == False):
+        bpy.ops.import_scene.fbx(filepath=input, use_anim=False, use_prepost_rot=False)
+    else:
+        bpy.ops.import_scene.fbx(filepath=input, use_anim=False, automatic_bone_orientation=True, force_connect_children=True, ignore_leaf_bones=True, use_prepost_rot=False)
 
     # remove_trashes()
     # rename_bones()
@@ -136,4 +141,4 @@ if '__main__' == __name__:
     if fbx:
         bpy.ops.export_scene.fbx(filepath=output, embed_textures=True, path_mode='COPY', object_types={'ARMATURE', 'MESH'}, global_scale=0.01)
     else:
-        bpy.ops.export_scene.gltf(filepath=output)
+        bpy.ops.export_scene.gltf(filepath=output, export_format="GLB")

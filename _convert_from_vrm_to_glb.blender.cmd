@@ -23,7 +23,6 @@ echo CurlResult: %curlresult%
 echo WindowsVersion: %windowsversion%
 echo BlenderAddonInstalled: %blender-addon%
 
-timeout 3
 
 echo "VRMアドオンの最新版を取得中…"
 curl -L -o "%~dp0VRM_Addon_for_Blender-release.zip" https://github.com/saturday06/VRM_Addon_for_Blender/raw/release-archive/VRM_Addon_for_Blender-release.zip

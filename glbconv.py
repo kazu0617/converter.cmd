@@ -7,7 +7,7 @@ import argparse
 
 def mtoon_to_bsdf():
     materials = bpy.data.materials
-    for material in materials:
+    for materialz in materials:
         if not material.use_nodes :
             continue
         
@@ -125,7 +125,7 @@ if '__main__' == __name__:
     output = args.output
     fbx = args.fbx
 
-    bpy.ops.import_scene.fbx(filepath=input, use_anim=False)
+    bpy.ops.import_scene.gltf(filepath=input)
 
     # remove_trashes()
     # rename_bones()
