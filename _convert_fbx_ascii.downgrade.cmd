@@ -1,17 +1,16 @@
-@echo off
-chcp 65001
+@echo on
 setlocal
 :first
 
 
 if exist "%~dp0fbx_ascii.exe" goto cycle
-echo "fbx変換ソフトを取得中…"
+echo "fbx�ϊ��\�t�g���擾���c"
 curl -L -o "%~dp0fbx_ascii.exe" https://github.com/kazu0617/fbx_sdk_python_sample/releases/download/build1/fbx_ascii.exe
 
 :cycle
 
 set SOURCE=%1
-set OUTPUT="%~dp1-ascii.fbx"
+set OUTPUT="%~dpn1-ascii.fbx"
 
 echo SOURCE = %SOURCE%
 echo OUTPUT = %OUTPUT%
@@ -23,14 +22,14 @@ goto end
 
 :error-drop
 
-echo FBXファイルをドラッグ＆ドロップで入れてください
+echo FBX�t�@�C�����h���b�O���h���b�v�œ���Ă�������
 pause
 :end
 
-echo "変換が完了しました。テクスチャの場所が直接見えるようになっているはずです。"
-echo "テスクチャの場所が不明な場合はファイルを確認した上で、対象の階層に格納してください"
-echo "また、Neosに導入する場合はFBX Header Version: 1003まで、FBX Version: 7400以下である必要があります。"
-echo "FBXが読み込めない場合はこのツールを使用してFBXをASCII化、その後内容を確認してください。"
+echo "�ϊ����������܂����B�e�N�X�`���̏ꏊ�����ڌ�����悤�ɂȂ��Ă���͂��ł��B"
+echo "�e�X�N�`���̏ꏊ���s���ȏꍇ�̓t�@�C�����m�F������ŁA�Ώۂ̊K�w�Ɋi�[���Ă�������"
+echo "�܂��ANeos�ɓ�������ꍇ��FBX Header Version: 1003�܂ŁAFBX Version: 7400�ȉ��ł���K�v������܂��B"
+echo "FBX���ǂݍ��߂Ȃ��ꍇ�͂��̃c�[�����g�p����FBX��ASCII���A���̌���e���m�F���Ă��������B"
 
 pause
 

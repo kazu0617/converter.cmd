@@ -5,6 +5,7 @@ setlocal
 
 echo "assimpを取得中…"
 curl -L -o "%~dp0assimp.exe" https://github.com/NeosSharedProject/assimp/releases/download/master/assimp.exe
+curl -L -o "%~dp0assimp-vc143-mt.dll" https://github.com/NeosSharedProject/assimp/releases/download/master/assimp-vc143-mt.dll
 timeout 3
 
 :cycle
